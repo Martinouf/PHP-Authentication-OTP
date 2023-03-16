@@ -27,7 +27,7 @@ $otp = TOTP::create(
 );
 $otp->setLabel('TP'); // The label
 $otp->setIssuer('Martin');
-$otp->setParameter('image', 'C:\Users\binantm\OneDrive - Fénelon Notre-Dame\Images\Saved Pictures\SLAM1\Article-20-900x510.jpg'); // FreeOTP can display image
+$otp->setParameter('image', 'https://cdn.futura-sciences.com/cdn-cgi/image/width=1920,quality=60,format=auto/sources/images/dossier/773/01-intro-773.jpg'); // FreeOTP can display image
 
 $otpOutput = "The current OTP is: {$otp->now()}\n";
 
