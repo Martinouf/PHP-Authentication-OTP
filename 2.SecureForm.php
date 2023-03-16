@@ -12,7 +12,7 @@ $secret = $otp->getSecret();
 
 
 // Utilisation d'un secret déjà généré
-$secret = "XVEZ4O2QCL2FYNIAJCIUNDJAKTAWL45S6SCXKJJEBGZNFN7BB4XFOKA3LNX4U3ERMSLSK4AUMKRVWU3YTYXMBK3WFDQQHPVT745CGMA";
+$secret = "JVQXE5DJNZ2HA33UOAYTEMZUGU3DOOBZ";
 $secretOutput = "The OTP secret is: {$secret}\n";
 
 
@@ -21,13 +21,13 @@ $secretOutput = "The OTP secret is: {$secret}\n";
  ***********************/
 $otp = TOTP::create(
     $secret,                   // secret utilisé (généré plus haut)
-    30,                 // période de validité
+    15,                 // période de validité
     'sha256',           // Algorithme utilisé
-    6                   // 6 digits
+    8                   // 8 digits
 );
-$otp->setLabel('BTS SIO SLAM'); // The label
-$otp->setIssuer('Lycée Fenelon');
-$otp->setParameter('image', 'https://avatars.githubusercontent.com/u/1199051?v=4'); // FreeOTP can display image
+$otp->setLabel('TP'); // The label
+$otp->setIssuer('Martin');
+$otp->setParameter('image', 'C:\Users\binantm\OneDrive - Fénelon Notre-Dame\Images\Saved Pictures\SLAM1\Article-20-900x510.jpg'); // FreeOTP can display image
 
 $otpOutput = "The current OTP is: {$otp->now()}\n";
 
@@ -60,7 +60,7 @@ $qrCodeOutput = "<img src='{$grCodeUri}'>";
 // Fonction qui renvoie true si login et mot de passe sont corrects
 function checkLoginPassword($login, $password)
 {
-    if ($login=='toto' && $password=='titi') return true;
+    if ($login=='Martin' && $password=='Martin') return true;
     return false;
 }
 
@@ -77,9 +77,9 @@ $formOutput = '';
 if (!empty($_POST['login']))
 {
     if ( checkLoginPassword($_POST['login'], $_POST['password'] ) && checkOTP( $_POST['otp'] ) )
-        $formOutput = "Login OK !";
+        $formOutput = "Vous êtes identifié bravo !";
     else
-        $formOutput = "Echec login";
+        $formOutput = "BOUUUUH tu t'es trompé";
 }
 ?>
 

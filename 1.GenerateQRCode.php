@@ -13,7 +13,7 @@ $otp = TOTP::create();
 $secret = $otp->getSecret();
 
 // ou utilisation d'un secret déjà généré par nos soins (pour les tests)
-$secret = "XVEZ4O2QCL2FYNIAJCIUNDJAKTAWL45S6SCXKJJEBGZNFN7BB4XFOKA3LNX4U3ERMSLSK4AUMKRVWU3YTYXMBK3WFDQQHPVT745CGMA";
+$secret = "JVQXE5DJNZ2HA33UOAYTEMZUGU3DOOBZ";
 
 echo "The OTP secret is: {$secret}\n";
 
@@ -24,13 +24,13 @@ echo "The OTP secret is: {$secret}\n";
  ***********************/
 $otp = TOTP::create(
     $secret,                   // secret utilisé (généré plus haut)
-    30,                 // période de validité
+    15,                 // période de validité
     'sha256',           // Algorithme utilisé
-    6                   // 6 digits
+    8                   // 8 digits
 );
-$otp->setLabel('BTS SIO SLAM'); // The label
-$otp->setIssuer('Lycée Fenelon');
-$otp->setParameter('image', 'https://avatars.githubusercontent.com/u/1199051?v=4'); // FreeOTP can display image
+$otp->setLabel('TP'); // The label
+$otp->setIssuer('Martin');
+$otp->setParameter('image', 'C:\Users\binantm\OneDrive - Fénelon Notre-Dame\Images\Saved Pictures\SLAM1\Article-20-900x510.jpg'); // FreeOTP can display image
 
 $otpOutput = "{$otp->now()}\n";
 
